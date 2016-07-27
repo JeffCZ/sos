@@ -1,0 +1,26 @@
+/*css sprites generator*/
+@import "compass/utilities/sprites";
+$sprite: sprite-map("sprite/*.png");
+
+.s{
+	position:absolute;
+  background: 0 0 no-repeat;
+  background-size: 100%;
+}
+@each $i in sprite_names($sprite){
+  .s_#{$i}{
+      width:percentage(image-width("../images/sprite/#{$i}.png") / $designedWidth);
+      height:0;
+      padding-bottom:percentage(image-height("../images/sprite/#{$i}.png") / $designedHeight);
+  }
+  .content .s_#{$i}{
+      width:percentage(image-width("../images/sprite/#{$i}.png") / $designedWidth);
+      height:percentage(image-height("../images/sprite/#{$i}.png") / $designedHeight);
+      padding-bottom: 0;
+  }
+  .onload{
+    .s_#{$i}{
+        background-image: url(../images/sprite/#{$i}.png);
+    }
+  }
+}  

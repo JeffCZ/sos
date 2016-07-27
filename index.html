@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>起个什么名字好呢</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<link rel="stylesheet" href="css/page.css">
+</head>
+<body>
+<div id="wrap" class="SFade">
+
+  <div id="page1" class="page onload">
+    
+    <div class="content">
+      11111111
+    </div>
+  
+  </div>
+  <div id="page2" class="page onload">
+    
+    <div class="content">
+      22222222
+    </div>
+  
+  </div>
+  <div id="page3" class="page">
+    
+    <div class="content">
+      33333333
+    </div>
+  
+  </div>
+  <div id="page4" class="page">
+    
+    <div class="content">
+      44444444
+    </div>
+  
+  </div>
+  
+</div>
+
+<div id="SLoading">
+  <div id="SLoading_con">
+    loading..
+  </div>
+</div>
+
+<script src="js/sos.js"></script>
+<script>
+var sos = new SOS({
+  designedWidth:300,
+  designedHeight:736,
+  musicSrc:"audio/bg.mp3",
+  shareConfig:[
+  {
+    img_url: "http://weread.qq.com/zh_CN/htmledition/promotion/20150827/../zh_CN/htmledition/promotion/20150906/images/weread_icon_h5_09.png",
+    link: window.location.href,
+    desc: "好友desc",
+    title: "好友title"
+  },
+  {
+    img_url: "http://weread.qq.com/zh_CN/htmledition/promotion/20150827/../zh_CN/htmledition/promotion/20150906/images/weread_icon_h5_09.png",
+    link: window.location.href,
+    desc: "朋友圈desc",
+    title: "朋友圈title"
+  }
+  ],
+  onSwitch:function(now){
+    console.log("onSwitch:"+now);
+  },
+  onSwitchEnd:function(now){
+    console.log("onSwitchEnd:"+now);
+  }
+});
+</script>
+</body>
+</html>

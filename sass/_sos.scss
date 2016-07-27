@@ -1,0 +1,146 @@
+/******** variables *******/
+$bgcolor:#fff;
+
+$turnPageTime:0.8s;
+
+$designedWidth:720px;
+
+$designedHeight:1144px;
+
+/******** mixins *******/
+@mixin sPos($l,$t){
+  top:percentage($t / $designedHeight);
+  left:percentage($l / $designedWidth);
+}
+@mixin size100{
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+}
+@mixin bg100($image){
+  background:url(../images/#{$image}) 0 0 no-repeat;
+  background-size:100% 100%;
+}
+
+/******* loading *******/
+#SLoading{
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  background:#fff;
+  z-index:99;
+  &_con{
+    display:none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 16%;
+    margin: auto;
+    width: 80px;
+    height: 24px;
+    line-height:24px;
+    text-align:center;
+    color:#fff;
+    background:#000;
+  }
+}
+
+/******* music *******/
+#SMusicBtn{
+  position:absolute;
+  width:26px;
+  height:26px;
+  right:10px;
+  top:10px;
+  z-index:6;
+  background: url(../images/music.png) no-repeat;
+  background-size: 26px;
+  &.SMusicBtn_On{
+    background-position:0 0;
+  }
+  &.SMusicBtn_Off{
+    background-position:0 100%;
+  }
+}
+
+/******* switching mode *******/
+/*SSlide*/
+#wrap.SSlide{
+  .page{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transform:translate3d(0,100%,0);
+    -webkit-transition:all $turnPageTime;
+    &.in{
+      -webkit-transform:translate3d(0,0,0);
+      z-index:2;
+    }
+    &.out{
+      -webkit-transform:translate3d(0,-100%,0);
+    }
+  }
+}
+/*SSlide_Horizontal*/
+#wrap.SSlide_Horizontal{
+  .page{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transform:translate3d(100%,0,0);
+    -webkit-transition:all $turnPageTime;
+    &.in{
+      -webkit-transform:translate3d(0,0,0);
+      z-index:2;
+    }
+    &.out{
+      -webkit-transform:translate3d(-100%,0,0);
+    }
+  }
+}
+/*SFade*/
+#wrap.SFade{
+  .page{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility:hidden;
+    -webkit-transition:all $turnPageTime;
+    &.in{
+      opacity: 1;
+      visibility:visible;
+    }
+  }
+}
+/*SCustom*/
+.SCustom .page{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  -webkit-transform:translate3d(0,100%,0);
+  -webkit-transition:all 0.001s;//transition is necessary, for triggering transitionEnd
+  &.in{
+    -webkit-transform:translate3d(0,0,0);
+  }
+  &.out{
+    -webkit-transform:translate3d(0,-100%,0);
+  }
+}
+
+/******* content *******/
+.page .content{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,0.4);
+}

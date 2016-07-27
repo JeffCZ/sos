@@ -1,0 +1,61 @@
+html,body{
+  height:100%;
+  overflow:hidden;
+  position:relative;
+}
+
+#wrap{
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+}
+
+#page1{background:url(http://m.7daysinn.cn/image/recruitment_images/page1.jpg) 0 0 no-repeat;background-size:cover;}
+#page2{background:url(http://m.7daysinn.cn/image/recruitment_images/bg.jpg) 0 0 no-repeat;background-size:cover;}
+#page3{background:url(http://m.7daysinn.cn/image/recruitment_images/page1.jpg) 0 0 no-repeat;background-size:cover;}
+#page4{background:url(http://m.7daysinn.cn/image/recruitment_images/bg.jpg) 0 0 no-repeat;background-size:cover;}
+.content{
+  font-size:48px;
+  color:#f00;
+}
+
+
+.arrow{
+  position:absolute;
+  top:auto;
+  right:0;
+  bottom:0;
+  left:0;
+  margin:auto;
+  width:8%;
+  max-width:72px;
+  height:0;
+  padding-bottom:9.7%;
+  -webkit-animation:arrow 1s infinite;
+  background:url(../images/arrow.png) 0 0 no-repeat;
+  background-size:cover;
+  z-index:5;
+  opacity:0;
+  &_White{
+    background-image:url(../images/arrowwhite.png);
+  }
+  &.show{
+    -webkit-animation:arrow_show 2s both;
+  }
+}
+@-webkit-keyframes arrow_show{
+  0%{
+    opacity:0;
+    -webkit-transform:translate3d(0,5%,0);
+  }
+  50%{
+    opacity:0;
+    -webkit-transform:translate3d(0,5%,0);
+  }
+  100%{
+    opacity:1;
+    -webkit-transform:translate3d(0,0,0);
+  }
+}
